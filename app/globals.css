@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-gold: #B8975A;
+  --color-gold-light: #D4B576;
+  --color-gold-dark: #8B6914;
+  --color-gold-pale: #FBF5E8;
+
+  --color-navy: #0D1B3E;
+  --color-navy-mid: #162B4A;
+  --color-navy-light: #1E3A5F;
+
+  --color-metal: #8B9AAD;
+  --color-metal-light: #C8D4E0;
+  --color-metal-pale: #EEF1F5;
+
+  --color-surface: #F7F8FA;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans-jp), "Yu Gothic", "游ゴシック", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+  --font-serif: var(--font-serif-jp), "Yu Mincho", "游明朝", "Hiragino Mincho ProN", serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1A1A2E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid #B8975A;
+  outline-offset: 2px;
+}
