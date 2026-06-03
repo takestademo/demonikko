@@ -28,13 +28,13 @@ export default function NewsPage() {
             {newsItems.map((item) => (
               <article key={item.id} className="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
                 <time
-                  dateTime={item.date}
+                  dateTime={item.date.replace(/\./g, "-")}
                   className="text-sm text-metal shrink-0 w-24"
                 >
                   {item.date}
                 </time>
-                <span className="text-xs px-2.5 py-1 bg-gold-pale text-gold border border-gold/30 rounded-sm shrink-0 w-fit">
-                  {item.category}
+                <span className="text-xs px-2.5 py-1 bg-gold-pale text-gold border border-gold/30 rounded-sm shrink-0 w-fit font-medium">
+                  {item.isNew ? "NEW" : item.category}
                 </span>
                 <p className="text-sm sm:text-base text-gray-700">{item.title}</p>
               </article>
