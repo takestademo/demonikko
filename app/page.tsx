@@ -63,11 +63,11 @@ export default function Home() {
               aria-hidden="true"
             >
               <Image
-                src="/images/herologo.png"
+                src="/images/herologo_big.png"
                 alt=""
-                width={220}
-                height={180}
-                className="h-40 lg:h-52 w-auto object-contain drop-shadow-2xl"
+                width={320}
+                height={260}
+                className="h-48 lg:h-64 w-auto object-contain drop-shadow-2xl"
               />
             </div>
           </div>
