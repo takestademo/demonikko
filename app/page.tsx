@@ -14,155 +14,148 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section aria-label="メインビジュアル" className="relative overflow-hidden">
+      <section aria-label="メインビジュアル" className="relative overflow-hidden bg-white">
         <div className="flex flex-col lg:flex-row min-h-[calc(100svh-80px)]">
+
           {/* Left – text */}
-          <div
-            className="relative flex-1 flex flex-col justify-center px-8 py-20 lg:px-16 lg:py-24"
-            style={{
-              background:
-                "linear-gradient(135deg, #0D1B3E 0%, #162B4A 60%, #1E3A5F 100%)",
-            }}
-          >
-            {/* Diagonal separator (desktop only) */}
+          <div className="relative flex-none lg:w-[44%] flex flex-col justify-center px-8 py-20 lg:px-16 lg:py-24">
+            <h1
+              className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-navy leading-[1.5] mb-6"
+              style={{ letterSpacing: "0.12em" }}
+            >
+              技術と信頼で、
+              <br />
+              未来を支える
+            </h1>
+
+            <p className="text-gray-500 text-sm lg:text-base leading-relaxed mb-10">
+              日興産業は、価値ある製品とサービスを通じて、
+              <br />
+              社会の発展に貢献します。
+            </p>
+
+            <div>
+              <Link
+                href="/business"
+                className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-gold hover:bg-gold-dark transition-colors duration-200 rounded-full"
+              >
+                日興産業の強み
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+
+            {/* 3D Gold Mascot – bottom left */}
             <div
-              className="hidden lg:block absolute right-0 top-0 bottom-0 w-16 z-10"
-              style={{
-                background:
-                  "linear-gradient(to bottom right, #0D1B3E 0%, #0D1B3E 50%, transparent 50%)",
-              }}
-            />
-
-            <div className="max-w-lg relative z-20">
-              {/* Gold accent line */}
-              <div className="w-10 h-0.5 bg-gold mb-8" />
-
-              {/* Hero logo mark */}
-              <div className="mb-8">
-                <Image
-                  src="/images/herologo.png"
-                  alt="日興産業株式会社"
-                  width={96}
-                  height={64}
-                  className="h-16 w-auto object-contain brightness-0 invert opacity-85"
-                />
-              </div>
-
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.2] mb-6">
-                技術と信頼で、
-                <br />
-                未来を支える。
-              </h1>
-
-              <p className="text-metal-light text-base lg:text-lg leading-relaxed mb-10">
-                価値ある製品とサービスを通じて、
-                <br className="hidden sm:block" />
-                社会の発展に貢献します。
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/business"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-medium text-navy bg-gold hover:bg-gold-light transition-colors duration-200 rounded-sm"
-                >
-                  事業紹介を見る
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-                <Link
-                  href="/company"
-                  className="inline-flex items-center justify-center px-7 py-3.5 text-sm font-medium text-white border border-white/30 hover:border-gold hover:text-gold transition-colors duration-200 rounded-sm"
-                >
-                  企業情報
-                </Link>
-              </div>
+              className="absolute bottom-0 left-6 lg:left-10 pointer-events-none select-none"
+              aria-hidden="true"
+            >
+              <Image
+                src="/images/herologo.png"
+                alt=""
+                width={220}
+                height={180}
+                className="h-40 lg:h-52 w-auto object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
 
-          {/* Right – image collage */}
-          <div className="relative flex-1 min-h-[55vw] lg:min-h-0 overflow-hidden">
-            {/* Main background image */}
-            <Image
-              src="/images/hero-1.jpg"
-              alt="潤滑油のクローズアップ"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            {/* Overlay */}
+          {/* Right – image mosaic */}
+          <div className="relative flex-1 min-h-[70vw] lg:min-h-0 overflow-hidden">
+            {/* Warm oval backdrop */}
             <div
-              className="absolute inset-0"
+              className="absolute"
               style={{
-                background:
-                  "linear-gradient(135deg, rgba(13,27,62,0.4) 0%, transparent 60%)",
+                inset: "-30% -10% -30% -20%",
+                background: "radial-gradient(ellipse at center, #F0E6D0 0%, #F7F0E4 50%, transparent 75%)",
+                borderRadius: "50%",
               }}
             />
 
-            {/* Overlay card 1 – metalworking */}
-            <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 w-36 h-28 sm:w-44 sm:h-32 border-2 border-gold shadow-2xl overflow-hidden rounded-sm">
-              <Image
-                src="/images/service_01.jpg"
-                alt="金属加工の現場"
-                fill
-                className="object-cover"
-                sizes="176px"
-              />
-            </div>
+            {/* Image grid */}
+            <div className="absolute inset-4 lg:inset-8 flex gap-1.5">
+              {/* Large left image with diagonal right edge */}
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  flex: "5 0 0",
+                  clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)",
+                  borderRadius: "12px 0 0 12px",
+                }}
+              >
+                <Image
+                  src="/images/hero-1.jpg"
+                  alt="金属加工の現場"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 60vw, 35vw"
+                />
+              </div>
 
-            {/* Overlay card 2 – lathe/oil */}
-            <div className="absolute bottom-28 right-24 sm:bottom-36 sm:right-40 w-32 h-24 sm:w-40 sm:h-28 border-2 border-white/60 shadow-2xl overflow-hidden rounded-sm">
-              <Image
-                src="/images/service_02.jpg"
-                alt="旋盤加工とエンジンオイル"
-                fill
-                className="object-cover"
-                sizes="160px"
-              />
+              {/* Right – two stacked images */}
+              <div className="flex flex-col gap-1.5" style={{ flex: "3 0 0" }}>
+                <div
+                  className="relative flex-1 overflow-hidden"
+                  style={{ borderRadius: "0 12px 0 0" }}
+                >
+                  <Image
+                    src="/images/service_01.jpg"
+                    alt="エンジン部品と潤滑油"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 40vw, 25vw"
+                  />
+                </div>
+                <div
+                  className="relative flex-1 overflow-hidden"
+                  style={{ borderRadius: "0 0 12px 0" }}
+                >
+                  <Image
+                    src="/images/service_02.jpg"
+                    alt="歯車と潤滑油"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 40vw, 25vw"
+                  />
+                </div>
+              </div>
             </div>
-
-            {/* Gold frame accent */}
-            <div className="absolute top-6 left-6 w-16 h-16 border border-gold/50" />
-            <div className="absolute top-8 left-8 w-16 h-16 border border-gold/30" />
           </div>
         </div>
       </section>
 
       {/* ===== NEWS BAR ===== */}
       <section aria-label="最新ニュース" className="bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="flex items-center gap-3 shrink-0">
-            <span className="text-xs font-medium tracking-[0.15em] uppercase text-gold">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
               NEWS
             </span>
-            <span className="hidden sm:block w-px h-4 bg-gray-200" />
-            <span className="text-xs text-gray-400 hidden sm:block">最新情報</span>
+            <span className="w-px h-4 bg-gray-200" />
           </div>
           <ul className="flex-1 space-y-1.5 sm:space-y-0">
-            {newsItems.slice(0, 2).map((item) => (
+            {newsItems.slice(0, 1).map((item) => (
               <li
                 key={item.id}
                 className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-sm"
               >
-                <time
-                  dateTime={item.date}
-                  className="text-xs text-metal shrink-0"
-                >
+                <time dateTime={item.date} className="text-xs text-metal shrink-0">
                   {item.date}
                 </time>
-                <span className="text-xs px-2 py-0.5 bg-gold-pale text-gold border border-gold/30 rounded-sm shrink-0">
+                <span className="text-xs px-2 py-0.5 border border-gold text-gold rounded-sm shrink-0">
                   {item.category}
                 </span>
                 <span className="text-gray-700 line-clamp-1">{item.title}</span>
@@ -181,12 +174,7 @@ export default function Home() {
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
         </div>
@@ -195,11 +183,34 @@ export default function Home() {
       {/* ===== OUR BUSINESS ===== */}
       <section
         aria-labelledby="business-heading"
-        className="py-20 lg:py-28 bg-surface"
+        className="relative py-20 lg:py-28 overflow-hidden"
+        style={{
+          background: "linear-gradient(180deg, #FDFAF5 0%, #F7F3EA 100%)",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 lg:mb-16">
-            <SectionHeading en="OUR BUSINESS" ja="事業紹介" />
+        {/* Decorative line accent bottom-left */}
+        <div
+          className="absolute bottom-0 left-0 w-72 h-72 pointer-events-none opacity-20"
+          aria-hidden="true"
+          style={{
+            background:
+              "repeating-linear-gradient(-45deg, transparent, transparent 8px, #B8975A 8px, #B8975A 9px)",
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 lg:mb-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-3">
+              OUR BUSINESS
+            </p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy mb-4">
+              事業紹介
+            </h2>
+            <p className="text-gray-500 text-sm leading-relaxed">
+              日興産業は、専門性の高い技術と豊富な経験を強みに、
+              <br className="hidden sm:block" />
+              多様な事業領域で社会に貢献しています。
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -236,7 +247,7 @@ export default function Home() {
               <Link
                 key={card.href}
                 href={card.href}
-                className="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
+                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col"
               >
                 <div className="relative h-44 overflow-hidden">
                   <Image
@@ -246,7 +257,6 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col border-t-2 border-transparent group-hover:border-gold transition-colors duration-300">
                   <p className="text-xs tracking-[0.15em] text-gold uppercase mb-2">
@@ -255,24 +265,13 @@ export default function Home() {
                   <h3 className="font-serif text-lg font-bold text-navy mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                  <p className="text-sm text-gray-500 leading-relaxed flex-1">
                     {card.desc}
                   </p>
                   <span className="mt-4 inline-flex items-center text-xs text-gold font-medium gap-1">
                     詳しく見る
-                    <svg
-                      className="w-3.5 h-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
                 </div>
@@ -285,29 +284,20 @@ export default function Home() {
       {/* ===== STRENGTHS ===== */}
       <section
         aria-labelledby="strengths-heading"
-        className="relative py-20 lg:py-28 overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #0D1B3E 0%, #162B4A 50%, #1E3A5F 100%)",
-        }}
+        className="py-20 lg:py-28 bg-white"
       >
-        {/* Decorative background image */}
-        <div className="absolute inset-0 opacity-10">
-          <Image
-            src="/images/service_bg.jpg"
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 lg:mb-16">
-            <SectionHeading en="OUR STRENGTHS" ja="日興産業の強み" light />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 lg:mb-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-3">
+              OUR STRENGTHS
+            </p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy mb-4">
+              日興産業の強み
+            </h2>
+            <div className="w-10 h-px bg-gold mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {[
               {
                 num: "01",
@@ -337,22 +327,22 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.num}
-                className="bg-white/5 border border-white/10 rounded-sm p-6 hover:bg-white/10 hover:border-gold/40 transition-colors duration-300"
+                className="border border-gray-100 rounded-xl p-6 hover:border-gold/50 hover:shadow-md transition-all duration-300 bg-white"
               >
-                <p className="font-serif text-3xl font-bold text-gold/60 mb-3 leading-none">
+                <p className="font-serif text-3xl font-bold text-gold/40 mb-3 leading-none">
                   {item.num}
                 </p>
-                <h3 className="font-serif text-lg font-bold text-white mb-3">
+                <h3 className="font-serif text-lg font-bold text-navy mb-3">
                   {item.title}
                 </h3>
-                <p className="text-sm text-metal-light leading-relaxed">
+                <p className="text-sm text-gray-500 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 pt-10 border-t border-white/10">
+          <div className="mt-12 pt-10 border-t border-gray-100">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
               {[
                 { label: "ODM・OEM対応", desc: "お客様のブランドで製品をご提供" },
@@ -361,10 +351,8 @@ export default function Home() {
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center">
                   <div className="w-8 h-px bg-gold mb-4" />
-                  <p className="text-sm font-medium text-white mb-1">
-                    {item.label}
-                  </p>
-                  <p className="text-xs text-metal-light">{item.desc}</p>
+                  <p className="text-sm font-semibold text-navy mb-1">{item.label}</p>
+                  <p className="text-xs text-gray-400">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -375,28 +363,18 @@ export default function Home() {
       {/* ===== PRODUCTS ===== */}
       <section
         aria-labelledby="products-heading"
-        className="py-20 lg:py-28 bg-white"
+        className="py-20 lg:py-28"
+        style={{ background: "linear-gradient(180deg, #FDFAF5 0%, #F7F3EA 100%)" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 lg:mb-16">
-            <SectionHeading en="PRODUCTS" ja="取扱製品" />
-          </div>
-
-          {/* Products header banner */}
-          <div className="relative h-32 sm:h-40 rounded-sm overflow-hidden mb-10">
-            <Image
-              src="/images/category-products-versus-header.png"
-              alt="取扱製品カテゴリ"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-navy/40" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="font-serif text-xl sm:text-2xl font-bold text-white">
-                幅広い用途に対応した製品ラインアップ
-              </p>
-            </div>
+          <div className="mb-12 lg:mb-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-3">
+              PRODUCTS
+            </p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy mb-4">
+              取扱製品
+            </h2>
+            <div className="w-10 h-px bg-gold mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -406,60 +384,37 @@ export default function Home() {
                 title: "金属加工油",
                 en: "Metalworking Oil",
                 desc: "切削・研削・プレス・鍛造など各種金属加工工程に適した油剤を取り揃えています。加工精度の向上と工具寿命の延長に貢献します。",
-                icon: "⚙",
               },
               {
                 href: "/business/products#industrial",
                 title: "工業用潤滑油",
                 en: "Industrial Lubricants",
                 desc: "各種産業機械・設備の潤滑に対応した工業用潤滑油です。設備の安定稼働と長寿命化をサポートします。",
-                icon: "🔧",
               },
               {
                 href: "/business/products#automotive",
                 title: "自動車用潤滑油",
                 en: "Automotive Lubricants",
                 desc: "エンジンオイルをはじめとした自動車用潤滑油を取り扱っています。車両性能の維持と保護に貢献します。",
-                icon: "🚗",
               },
             ].map((product) => (
               <Link
                 key={product.href}
                 href={product.href}
-                className="group border border-gray-200 hover:border-gold rounded-sm p-6 transition-colors duration-300 flex flex-col"
+                className="group bg-white border border-gray-100 hover:border-gold rounded-xl p-7 transition-all duration-300 flex flex-col hover:shadow-md"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <p className="text-xs text-metal tracking-wide mb-1">
-                      {product.en}
-                    </p>
-                    <h3 className="font-serif text-xl font-bold text-navy">
-                      {product.title}
-                    </h3>
-                  </div>
-                  <div className="w-10 h-10 flex items-center justify-center bg-gold-pale rounded-sm text-xl shrink-0">
-                    {product.icon}
-                  </div>
-                </div>
+                <p className="text-xs text-metal tracking-wide mb-1">{product.en}</p>
+                <h3 className="font-serif text-xl font-bold text-navy mb-4">
+                  {product.title}
+                </h3>
                 <div className="w-8 h-px bg-gold mb-4" />
-                <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                <p className="text-sm text-gray-500 leading-relaxed flex-1">
                   {product.desc}
                 </p>
                 <span className="mt-5 inline-flex items-center text-xs text-gold font-medium gap-1">
                   製品一覧
-                  <svg
-                    className="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </span>
               </Link>
@@ -469,17 +424,11 @@ export default function Home() {
       </section>
 
       {/* ===== COMPANY / RECRUIT / RELATED ===== */}
-      <section
-        aria-label="企業情報・採用・関連会社"
-        className="py-20 lg:py-28 bg-surface"
-      >
+      <section aria-label="企業情報・採用・関連会社" className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Company */}
-            <Link
-              href="/company"
-              className="group relative h-64 overflow-hidden rounded-sm"
-            >
+            <Link href="/company" className="group relative h-64 overflow-hidden rounded-xl">
               <Image
                 src="/images/company_bg.jpg"
                 alt="企業情報"
@@ -487,68 +436,38 @@ export default function Home() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/30 to-transparent" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <p className="text-xs tracking-[0.15em] uppercase text-gold mb-1">
-                  COMPANY
-                </p>
-                <h3 className="font-serif text-2xl font-bold text-white">
-                  企業情報
-                </h3>
-                <p className="text-sm text-metal-light mt-1.5">
-                  会社概要・沿革・品質方針
-                </p>
+                <p className="text-xs tracking-[0.15em] uppercase text-gold mb-1">COMPANY</p>
+                <h3 className="font-serif text-2xl font-bold text-white">企業情報</h3>
+                <p className="text-sm text-white/70 mt-1">会社概要・沿革・品質方針</p>
               </div>
             </Link>
 
             {/* Recruit */}
             <Link
               href="/recruit"
-              className="group relative h-64 overflow-hidden rounded-sm bg-navy-mid"
+              className="group relative h-64 overflow-hidden rounded-xl"
+              style={{ background: "linear-gradient(135deg, #F0E6D0 0%, #E8D9B8 100%)" }}
             >
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #162B4A 0%, #0D1B3E 100%)",
-                }}
-              />
-              {/* Geometric decoration */}
-              <div className="absolute right-4 bottom-4 w-32 h-32 border border-gold/20 rounded-full" />
-              <div className="absolute right-8 bottom-8 w-20 h-20 border border-gold/30 rounded-full" />
+              <div className="absolute right-6 bottom-6 w-32 h-32 border border-gold/30 rounded-full" />
+              <div className="absolute right-10 bottom-10 w-20 h-20 border border-gold/40 rounded-full" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <p className="text-xs tracking-[0.15em] uppercase text-gold mb-1">
-                  RECRUIT
-                </p>
-                <h3 className="font-serif text-2xl font-bold text-white">
-                  採用情報
-                </h3>
-                <p className="text-sm text-metal-light mt-1.5">
-                  募集要項・選考方法
-                </p>
+                <p className="text-xs tracking-[0.15em] uppercase text-gold mb-1">RECRUIT</p>
+                <h3 className="font-serif text-2xl font-bold text-navy">採用情報</h3>
+                <p className="text-sm text-gray-600 mt-1">募集要項・選考方法</p>
               </div>
             </Link>
 
             {/* Related Companies */}
             <Link
               href="/related-companies"
-              className="group relative h-64 overflow-hidden rounded-sm bg-navy-light"
+              className="group relative h-64 overflow-hidden rounded-xl border border-gray-100 hover:border-gold transition-colors duration-300"
+              style={{ background: "linear-gradient(135deg, #FDFAF5 0%, #F7F0E4 100%)" }}
             >
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #1E3A5F 0%, #162B4A 100%)",
-                }}
-              />
-              <div className="absolute right-0 top-0 bottom-0 w-1 bg-gold/40" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <p className="text-xs tracking-[0.15em] uppercase text-gold mb-1">
-                  GROUP
-                </p>
-                <h3 className="font-serif text-2xl font-bold text-white">
-                  関連会社
-                </h3>
+                <p className="text-xs tracking-[0.15em] uppercase text-gold mb-1">GROUP</p>
+                <h3 className="font-serif text-2xl font-bold text-navy">関連会社</h3>
                 <ul className="mt-2 space-y-0.5">
                   {[
                     "NIKKO OIL PRODUCTS",
@@ -556,9 +475,7 @@ export default function Home() {
                     "NIKKO OIL PRODUCTS (THAILAND)",
                     "浩歩速（上海）商貿",
                   ].map((name) => (
-                    <li key={name} className="text-xs text-metal-light">
-                      {name}
-                    </li>
+                    <li key={name} className="text-xs text-gray-500">{name}</li>
                   ))}
                 </ul>
               </div>
@@ -570,36 +487,26 @@ export default function Home() {
       {/* ===== CONTACT CTA ===== */}
       <section
         aria-label="お問い合わせ"
-        className="py-16 lg:py-20 bg-white border-t border-gray-100"
+        className="py-16 lg:py-20"
+        style={{ background: "linear-gradient(135deg, #F0E6D0 0%, #E8D9B8 100%)" }}
       >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-8 h-px bg-gold mx-auto mb-6" />
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-navy mb-4">
             お問い合わせ
           </h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          <p className="text-gray-600 mb-8 leading-relaxed text-sm">
             製品・サービスに関するご質問、ODM・OEMのご相談など、
             <br className="hidden sm:block" />
             お気軽にお問い合わせください。
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-gold hover:bg-gold-dark transition-colors duration-200 rounded-sm"
+            className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-gold hover:bg-gold-dark transition-colors duration-200 rounded-full"
           >
             お問い合わせフォームへ
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
         </div>
