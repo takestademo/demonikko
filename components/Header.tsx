@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/Image";
 import { usePathname } from "next/navigation";
 
 type NavChild = { label: string; href: string };
