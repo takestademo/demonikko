@@ -93,41 +93,48 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav
-            className="hidden lg:flex items-center gap-0.5"
+            className="hidden lg:flex items-center"
             aria-label="メインナビゲーション"
           >
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => item.children && setOpenDropdown(item.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                <Link
-                  href={item.href}
-                  className={`px-4 py-2 text-sm font-medium transition-colors duration-150 whitespace-nowrap rounded-sm ${
-                    pathname.startsWith(item.href)
-                      ? "text-gold"
-                      : "text-gray-700 hover:text-gold"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.children && openDropdown === item.label && (
-                  <div className="absolute top-full left-0 pt-1 w-52 z-20">
-                    <div className="bg-white shadow-lg border-t-2 border-gold rounded-b-sm py-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-gold-pale hover:text-navy transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+            {navItems.map((item, index) => (
+              <div key={item.label} className="flex items-center">
+                {index > 0 && (
+                  <span
+                    className="w-px h-3.5 bg-gray-300 mx-0.5 shrink-0 pointer-events-none"
+                    aria-hidden="true"
+                  />
                 )}
+                <div
+                  className="relative"
+                  onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <Link
+                    href={item.href}
+                    className={`px-4 py-2 text-sm font-medium transition-colors duration-150 whitespace-nowrap rounded-sm ${
+                      pathname.startsWith(item.href)
+                        ? "text-gold"
+                        : "text-gray-700 hover:text-gold"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children && openDropdown === item.label && (
+                    <div className="absolute top-full left-0 pt-1 w-52 z-20">
+                      <div className="bg-white shadow-lg border-t-2 border-gold rounded-b-sm py-1">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-gold-pale hover:text-navy transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </nav>
@@ -135,8 +142,22 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden lg:inline-flex items-center px-5 py-2 text-sm font-medium text-white bg-gold hover:bg-gold-dark transition-colors duration-200 rounded-sm"
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium text-white bg-gold hover:bg-gold-dark transition-colors duration-200 rounded-sm"
             >
+              <svg
+                className="w-4 h-4 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
               お問い合わせ
             </Link>
             <button

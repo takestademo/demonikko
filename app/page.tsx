@@ -19,6 +19,24 @@ export default function Home() {
 
           {/* Left – text */}
           <div className="relative flex-none lg:w-[44%] flex flex-col justify-center px-8 py-20 lg:px-16 lg:py-24">
+            {/* Warm oval backdrop on text side */}
+            <div
+              className="absolute inset-0 pointer-events-none overflow-hidden"
+              aria-hidden="true"
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "-20%",
+                  left: "-30%",
+                  width: "140%",
+                  height: "110%",
+                  background:
+                    "radial-gradient(ellipse at 35% 75%, #EFE3C8 0%, #F8F1E4 48%, transparent 70%)",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
             <h1
               className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-navy leading-[1.5] mb-6"
               style={{ letterSpacing: "0.12em" }}
@@ -91,7 +109,7 @@ export default function Home() {
                 className="relative overflow-hidden"
                 style={{
                   flex: "5 0 0",
-                  clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 100%)",
+                  clipPath: "polygon(0 0, 100% 0, 83% 100%, 0 100%)",
                   borderRadius: "12px 0 0 12px",
                 }}
               >
@@ -152,11 +170,14 @@ export default function Home() {
                 key={item.id}
                 className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-sm"
               >
-                <time dateTime={item.date} className="text-xs text-metal shrink-0">
+                <time
+                  dateTime={item.date.replace(/\./g, "-")}
+                  className="text-xs text-metal shrink-0"
+                >
                   {item.date}
                 </time>
-                <span className="text-xs px-2 py-0.5 border border-gold text-gold rounded-sm shrink-0">
-                  {item.category}
+                <span className="text-xs px-2 py-0.5 border border-gold text-gold rounded-sm shrink-0 font-medium tracking-wide">
+                  {item.isNew ? "NEW" : item.category}
                 </span>
                 <span className="text-gray-700 line-clamp-1">{item.title}</span>
               </li>
@@ -188,15 +209,30 @@ export default function Home() {
           background: "linear-gradient(180deg, #FDFAF5 0%, #F7F3EA 100%)",
         }}
       >
-        {/* Decorative line accent bottom-left */}
-        <div
-          className="absolute bottom-0 left-0 w-72 h-72 pointer-events-none opacity-20"
-          aria-hidden="true"
-          style={{
-            background:
-              "repeating-linear-gradient(-45deg, transparent, transparent 8px, #B8975A 8px, #B8975A 9px)",
-          }}
-        />
+        {/* Decorative wave accent */}
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 80"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            className="w-full h-16 lg:h-20"
+          >
+            <path
+              d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
+              fill="none"
+              stroke="#B8975A"
+              strokeWidth="1"
+              opacity="0.25"
+            />
+            <path
+              d="M0,55 C240,95 480,15 720,55 C960,95 1200,15 1440,55 L1440,80 L0,80 Z"
+              fill="none"
+              stroke="#B8975A"
+              strokeWidth="0.75"
+              opacity="0.15"
+            />
+          </svg>
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 lg:mb-16 text-center">
